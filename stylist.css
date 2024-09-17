@@ -1,0 +1,16 @@
+.array-container{
+    display: flex;
+    justify-content: center;
+}
+.array-bar{
+    /* padding: 50px; */
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     width: 70px;
+    /* height: 50px;  */
+    background-color: rgb(39, 65, 214);
+    margin: 0 2px;
+}
