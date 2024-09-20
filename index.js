@@ -1,24 +1,40 @@
 console.log('Hello World');
-const array = [64, 67, 34, 44, 7, 25, 12, 22, 11];
-document.addEventListener("DOMContentLoaded", () => {
+let array = [];
+
+const formElement = document.querySelector(".form-Element");
+formElement.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const value = formElement.querySelector("#element").value;
+    const valueArray = value.split(" ");
+    for (let i = 0; i < valueArray.length; i++) {
+        array.push(parseInt(valueArray[i]));
+    }
+    updateArrayDisplay();
+});
+
+
+
+function updateArrayDisplay() {
     const arrayContainer = document.querySelector(".array-container");
- 
-    // Hiển thị các phần tử của mảng dưới dạng các thanh
-    array.forEach((value,index) => {
+    arrayContainer.innerHTML = ''; // Clear previous bars
+    array.forEach((value, index) => {
         const bar = document.createElement("div");
         bar.classList.add("array-bar");
         bar.classList.add(`${index}`);
-
         bar.style.height = `${value * 3}px`;
         bar.textContent = value;
         arrayContainer.appendChild(bar);
     });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateArrayDisplay(); // Hiển thị mảng khi trang được tải
 });
+
 const startProgram = document.querySelector(".start");
 startProgram.addEventListener("click", async () => {
     console.log("Start program");
     const arrayBars = document.querySelectorAll(".array-bar");
-
     // Hàm để thêm thời gian trễ
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -56,4 +72,10 @@ startProgram.addEventListener("click", async () => {
     }
 
     console.log(array);
+});
+
+const resetProgram = document.querySelector(".clear");
+resetProgram.addEventListener("click", () => {
+    console.log("Reset program");
+    location.reload();
 });

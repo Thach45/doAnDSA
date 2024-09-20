@@ -14,3 +14,11 @@
     background-color: rgb(39, 65, 214);
     margin: 0 2px;
 }
+
+.header{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    height: 50px;
+
+}
