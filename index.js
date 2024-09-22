@@ -1,4 +1,4 @@
-console.log('Hello World');
+console.log('Nguyen Hoang Thach - 23110326 - Đồ án giữa kỳ môn Cấu trúc dữ liệu và giải thuật');
 let array = [];
 
 const formElement = document.querySelector(".form-Element");
@@ -6,8 +6,13 @@ formElement.addEventListener("submit", (e) => {
     e.preventDefault();
     const value = formElement.querySelector("#element").value;
     const valueArray = value.split(" ");
+   
     for (let i = 0; i < valueArray.length; i++) {
-        array.push(parseInt(valueArray[i]));
+        const number = parseInt(valueArray[i]);
+        if(number * 0 === 0){
+            array.push(parseInt(valueArray[i]));
+            
+        }
     }
     updateArrayDisplay();
 });
